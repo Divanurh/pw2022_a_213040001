@@ -9,7 +9,7 @@ $mahasiswa = [
     ],
     [
     "gambar" => "pin.jpeg",
-    "nama" => "Revina Bella Trisna", s
+    "nama" => "Revina Bella Trisna", 
     "nrp" => "213040002", 
     "email" => "revinabella@gmail.com", 
     "jurusan" => "Teknik Pangan"
@@ -85,44 +85,28 @@ $mahasiswa = [
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Daftar Mahasiswa</title>
+    <title>Detail Mahasiswa</title>
   </head>
   <body>
 
     <div class="container">
-        <h1>Daftar Mahasiswa</h1>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Gambar</th>
-      <th scope="col">Nama</th>
-      <th scope="col">NPM</th>
-      <th scope="col">Email</th>
-      <th scope="col">Jurusan</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <?php $no = 1; foreach($mahasiswa as $mhs) { ?> 
-  <tbody>
-    <tr class="align-middle">
-      <th scope="row"><?= $no++; ?></th>
-      <td>
-          <img src="img/<?php echo $mhs["gambar"]; ?>" width="50" class="rounded-circle" >
-      </td>
-      <td><?php echo $mhs["nama"] ?></td>
-      <td><?php echo $mhs["nrp"] ?></td>
-      <td><?php echo $mhs["email"] ?></td>
-      <td><?php echo $mhs["jurusan"] ?></td>
-      <td>
-          <a href=""class="btn badge bg-warning">edit</a>
-          <a href=""class="btn badge bg-danger">delete</a>
-      </td>
-    </tr>
-  </tbody>
-  <?php } 
-  ?>
-</table>
+        <h1>Detail Mahasiswa</h1>
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="img/<?= $_GET["gambar"]; ?>" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?= $_GET["nama"]; ?></h5>
+        <p class="card-text"><?= $_GET["nrp"]; ?></p>
+        <p class="card-text"><?= $_GET["email"]; ?></p>
+        <p class="card-text">Teknik Informatika</p>
+        <a href="kuliah_latihan3.php?">Kembali</a>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

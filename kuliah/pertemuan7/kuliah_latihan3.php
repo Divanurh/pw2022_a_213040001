@@ -9,7 +9,7 @@ $mahasiswa = [
     ],
     [
     "gambar" => "pin.jpeg",
-    "nama" => "Revina Bella Trisna", s
+    "nama" => "Revina Bella Trisna", 
     "nrp" => "213040002", 
     "email" => "revinabella@gmail.com", 
     "jurusan" => "Teknik Pangan"
@@ -68,8 +68,7 @@ $mahasiswa = [
       "nama" => "Wildan", 
       "nrp" => "213040010", 
       "email" => "wildan@gmail.com", 
-      "jurusan" => "Ekonomi
-      "
+      "jurusan" => "Ekonomi"
     ]
 ];
 ?>
@@ -97,31 +96,30 @@ $mahasiswa = [
       <th scope="col">#</th>
       <th scope="col">Gambar</th>
       <th scope="col">Nama</th>
-      <th scope="col">NPM</th>
-      <th scope="col">Email</th>
-      <th scope="col">Jurusan</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
-  <?php $no = 1; foreach($mahasiswa as $mhs) { ?> 
   <tbody>
+  <?php $no = 1; foreach($mahasiswa as $mhs) { ?> 
     <tr class="align-middle">
       <th scope="row"><?= $no++; ?></th>
       <td>
           <img src="img/<?php echo $mhs["gambar"]; ?>" width="50" class="rounded-circle" >
       </td>
-      <td><?php echo $mhs["nama"] ?></td>
-      <td><?php echo $mhs["nrp"] ?></td>
-      <td><?php echo $mhs["email"] ?></td>
-      <td><?php echo $mhs["jurusan"] ?></td>
+      <td><?php echo $mhs["nama"]; ?></td>
       <td>
           <a href=""class="btn badge bg-warning">edit</a>
           <a href=""class="btn badge bg-danger">delete</a>
+          <a href="kuliah_latihan4.php?gambar=<?= $mhs["gambar"]; ?>
+                                      &nama=<?= $mhs["nama"]; ?>
+                                      &nrp=<?= $mhs["nrp"]; ?>
+                                      &email=<?= $mhs["email"]; ?>"
+                                      class="btn badge bg-info">detail</a>
       </td>
     </tr>
+
+    <?php } ?>
   </tbody>
-  <?php } 
-  ?>
 </table>
     </div>
 
@@ -137,4 +135,6 @@ $mahasiswa = [
     -->
   </body>
 </html>
+        
+     
  
