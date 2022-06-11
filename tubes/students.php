@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'function.php';
 
 $students = query("SELECT * FROM students");
@@ -60,25 +67,13 @@ $students = query("SELECT * FROM students");
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-
-                Dashboard
+                Students
             </h2>
-
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" />
-            </div>
-
-            <div class="user-wrapper">
-                <img src="img/img11.jpeg" width="40px" height="40px" alt="">
-                <div>
-                    <h4>Diva</h4>
-                    <small>admin</small>
-                </div>
-            </div>
         </header>
 
         <main>
+
+        <a href="logout.php">Logout</a>
 
             
     <div class="container col-md-12 m-0">
@@ -90,12 +85,15 @@ $students = query("SELECT * FROM students");
           <div class="col-8">
             <form action="" method="get">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="keyword" id="keyword" autocomplete="off" placeholder="enter search..." autofocus>
-                <button class="btn btn-primary" type="submit" id="search" name="Search">Search</button>
+                <input type="text" class="form-control" name="keyword" id="keyword" autocomplete="off" placeholder="enter search..." autofocus id="keyword">
+                <button class="btn btn-primary" type="submit" id="tombol-cari" name="Search">Search</button>
               </div>
             </form>
           </div>
         </div>
+
+        <div id="container">
+
 
         <table class="table">
   <thead>
@@ -129,8 +127,9 @@ $students = query("SELECT * FROM students");
   <?php }
   ?>
 </table>
+</div>
     </div>
-
+    <script src="js/script.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

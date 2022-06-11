@@ -1,6 +1,11 @@
 <?php 
+session_start();
 
-//cek apakah tombol tambah sudah di klik
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'function.php';
 
 // cek apakah tombol submit telah ditekan atau belum
