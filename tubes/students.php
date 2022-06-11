@@ -35,6 +35,13 @@ $students = query("SELECT * FROM students");
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+      @media print {
+        .logout, .tambah, .form-cari, .aksi {
+          display: none;
+        }
+      }
+    </style>
 
 </head>
 <body>
@@ -73,17 +80,17 @@ $students = query("SELECT * FROM students");
 
         <main>
 
-        <a href="logout.php">Logout</a>
+        <a href="logout.php" class="logout">Logout</a>
 
             
     <div class="container col-md-12 m-0">
         <h1>List Students Kider</h1>
 
-        <a href="add.php" class="btn btn-primary">Add Students Data</a>
+        <a href="add.php" class="btn btn-primary" class="tambah">Add Students Data</a>
         
         <div class="row mt-4">
           <div class="col-8">
-            <form action="" method="get">
+            <form action="" method="get" class="form-cari">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" name="keyword" id="keyword" autocomplete="off" placeholder="enter search..." autofocus id="keyword">
                 <button class="btn btn-primary" type="submit" id="tombol-cari" name="Search">Search</button>
@@ -104,7 +111,7 @@ $students = query("SELECT * FROM students");
       <th scope="col">Student Number</th>
       <th scope="col">Age</th>
       <th scope="col">Parents</th>
-      <th scope="col">Action</th>
+      <th scope="col" class="aksi">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -118,7 +125,7 @@ $students = query("SELECT * FROM students");
       <td><?php echo $stds["Student_number"] ?></td>
       <td><?php echo $stds["Age"] ?></td>
       <td><?php echo $stds["Parents"] ?></td>
-      <td>
+      <td class="aksi">
           <a href="change.php?id=<?= $stds["id"]; ?>"class="btn badge bg-warning">Change</a>
           <a href="delete.php?id=<?= $stds["id"]; ?>"class="btn badge bg-danger" onclick="return confirm('yakin akan menghapus?')">Delete</a>
       </td>
