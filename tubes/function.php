@@ -41,7 +41,7 @@ function submit($data) {
     $query = "INSERT INTO 
             students 
             VALUES 
-            (null, '$picture', '$studentnumber', '$name', '$age', '$parents')";
+            (null, '$picture', '$name', '$studentnumber', '$age', '$parents')";
 
     mysqli_query($conn, $query) or die (mysqli_error($conn));
 
